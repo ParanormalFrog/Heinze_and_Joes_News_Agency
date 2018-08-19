@@ -7,12 +7,10 @@ url = "https://news.ycombinator.com/newest"
 html = requests.get(url)
 soup = BeautifulSoup(html.content, 'html.parser')
 
-
 class article:
     def __init__(self, title, url):
         self.title = title
         self.url = url
-
 
 def title_lister (soup):
     articles = []
