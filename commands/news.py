@@ -17,7 +17,7 @@ class News:
             news_ebmed = discord.Embed(color=0x2ecc71, description='Matched news article')
             news_ebmed.add_field(name=articles[0].title, value=articles[0].url)
             news_ebmed.add_field(name='Search Score', value=articles[0].rank)
-            news_ebmed.add_field(name='Matched Keywords', value=articles[0].matches)
+            news_ebmed.add_field(name='Matched Keywords', value=', '.join(articles[0].matches))
             await ctx.send(embed=news_ebmed)
         except Exception as error:
             print('{}: {}'.format(type(error).__name__, error))
