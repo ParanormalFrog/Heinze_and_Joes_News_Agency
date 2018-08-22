@@ -1,0 +1,1 @@
+keyword_list = ['Facebook', 'Computer Science', 'JavaScript', 'AI', 'Artificial Intelligence', 'Elon', 'competitive', 'AGI', 'Machine Learning', "SQL" 'ML', 'Post-Modernism', 'Post Modernism', 'UBI', 'Universal Basic Income', 'Python', 'py', 'Programming', 'Google']
