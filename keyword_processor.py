@@ -3,13 +3,12 @@ import os
 import sys
 import re
 
-file = open(os.getcwd()+"/test.file.txt", mode='a+')
 
 
-def generaliser():
-    keyword = sys.argv[1:]
-    keyword = " ".join(keyword).strip().upper()
+def generaliser(keyword):
+    keyword = keyword
+    keyword = keyword.strip().upper()
     keyword = "\n" + str(keyword) + "([\'sS]{0,2})"
+    file = open('./utility/test.file.txt', mode='a+')
+    file.write(keyword)
     return keyword
-
-file.write(generaliser())
