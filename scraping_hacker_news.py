@@ -7,6 +7,7 @@ class article:
         self.title = title
         self.url = url
         self.rank = 0
+        self.matches = []
 
 def title_lister():
     url = "https://news.ycombinator.com/newest"
@@ -20,7 +21,7 @@ def title_lister():
 
     # Result is cleaned of filth!
     for r in result:
-        title = r.get_text()[:re.search(pattern, r.get_text()).span()[0]].strip().capitalize()
+        title = r.get_text()[:re.search(pattern, r.get_text()).span()[0]].strip()
         href = r.find('a').get('href')
         articles.append(article(title, href))
 
