@@ -12,7 +12,7 @@ description = 'CubiculumBot helps us do all kinds of awesome things!'
 client = commands.Bot(command_prefix=prefix, description=description)
 
 # Extension list to be loaded as the bot comes online
-startup_extensions = ['admin', 'general']
+startup_extensions = ['admin', 'general', 'news']
 
 # On ready confirmation
 @client.event
