@@ -1,11 +1,12 @@
-import scraping_hacker_news
 import re
+import utility.keyword_list as kw
+import scraping_hacker_news
 
 def rank_and_drop():
     articles = []
     articles.extend(scraping_hacker_news.title_lister())
 
-    keywords = [word for word in ['Facebook', 'Computer Science', 'JavaScript', 'AI', 'Artificial Intelligence', 'Elon', 'competitive', 'AGI', 'Machine Learning', "SQL" 'ML', 'Post-Modernism', 'Post Modernism', 'UBI', 'Universal Basic Income', 'Python', 'py', 'Programming', 'Google']]
+    keywords = [word for word in kw.keywords_to_list('../utility/keywords.txt')]
     keywords = set(keywords)
 
     for article in articles:
