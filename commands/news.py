@@ -49,7 +49,7 @@ class News:
     async def kwadd(self, ctx, *args):
         try:
             kw_file = open('../utility/keywords.txt','a')
-            await ctx.send('{} keywords successfully added: `{}`'.format(len(args), ', '.join(args)))
+            await ctx.send('{} keyword(s) successfully added: `{}`'.format(len(args), ', '.join(args)))
             for arg in args:
                 kw_file.write(',' + arg)
         except Exception as error:
@@ -60,9 +60,17 @@ class News:
     kwrm_brief = 'Remove a keyword from the list'
     kwrm_desc = '`!kwrm <keyword>` removes a keyword from the list of search terms.'
     @commands.command(pass_context=True, brief=kwrm_brief, description=kwrm_desc)
-    async def kwrm(self, ctx, arg):
+    async def kwrm(self, ctx, *args):
         try:
-            print(' ')
+            keywords = kw.keywords_to_list('../utility/keywords.txt')
+            kw_removed = []
+            for keyword in list(keywords):
+                if keyword in args:
+                    kw_removed.append(keyword)
+                    keywords.remove(keyword)
+            await ctx.send('{} keyword(s) removed from list: `{}`'.format(len(kw_removed), ', '.join(kw_removed)))
+            kw_file = open('../utility/keywords.txt','w')
+            kw_file.write(','.join(keywords))
         except Exception as error:
             print('{}: {}'.format(type(error).__name__, error))
 
